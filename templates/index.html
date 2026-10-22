@@ -1,1 +1,50 @@
-<html><head><meta charset='utf-8'><link rel='stylesheet' href='/static/style.css'></head><body><img class='logo' src='/static/logo_aslm.png'><div class='menu'><a class='btn' href='/admin'>⚙ Administration</a><a class='btn' href='/buteurs'>🏆 Buteurs</a></div><h1>ASLM LIVE</h1>{% for m in matchs %}<div class='card'><b>{{m[1]}}</b> - {{m[2]}}<br>ASLM {{m[7]}} - {{m[8]}}<br>{{m[9]}}</div>{% endfor %}</body></html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+			<link rel='stylesheet' href='/static/style.css'/>
+			<script>
+
+setInterval(function () {
+
+    location.reload();
+
+}, 10000);
+
+</script>
+			<body>
+				<img class='logo' src='/static/logo_aslm.png'>
+				<h1>
+⚽ ASLM LIVE
+</h1>
+
+<p>
+Résultats et scores en direct
+</p>
+					<div class='menu'>
+						<a class='btn' href='/admin'>⚙ Administration</a>
+						<a class='btn' href='/buteurs'>🏆 Buteurs</a>
+					</div>
+					<h1>ASLM LIVE</h1>{% for m in matchs %}
+
+					<div class="card">
+
+					<h2>
+						⚽ {{m[1]}}
+					</h2>
+
+					<div class="score">
+						{{m[7]}} - {{m[8]}}
+					</div>
+
+					<h3>
+						{{m[2]}}
+					</h3>
+
+					<p>
+						{{m[9]}}
+					</p>
+
+				</div>
+
+				{% endfor %}</body>
+									</html>

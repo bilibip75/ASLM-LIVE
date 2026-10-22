@@ -63,4 +63,23 @@ button {
     button{
         font-size:18px;
     }
+	
+	.status-avant{
+    color:#777;
+	}
+
+	.status-encours{
+		color:green;
+		font-weight:bold;
+	}
+
+	.status-mitemps{
+		color:orange;
+		font-weight:bold;
+	}
+
+	.status-termine{
+		color:red;
+		font-weight:bold;
+	}
 }
