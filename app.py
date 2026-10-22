@@ -169,11 +169,34 @@ def index():
 
     matchs = cur.fetchall()
 
+    matchs_avec_buts = []
+
+    for m in matchs:
+
+        cur.execute(
+            """
+            SELECT minute,buteur
+            FROM buts
+            WHERE match_id=?
+            ORDER BY id
+            """,
+            (m[0],)
+        )
+
+        buts = cur.fetchall()
+
+        matchs_avec_buts.append(
+            {
+                "match": m,
+                "buts": buts
+            }
+        )
+
     c.close()
 
     return render_template(
         "index.html",
-        matchs=matchs
+        matchs_avec_buts=matchs_avec_buts
     )
 
 
@@ -283,7 +306,87 @@ def edit(i):
         equipes=EQUIPES
     )
 
+@app.route("/confirm_reset/<int:i>")
+def confirm_reset(i):
 
+    if not session.get("admin"):
+        return redirect("/login")
+
+    c = db()
+    cur = c.cursor()
+
+    cur.execute(
+        "SELECT * FROM matchs WHERE id=?",
+        (i,)
+    )
+
+    match = cur.fetchone()
+
+    c.close()
+
+    return render_template(
+        "confirmation_reset.html",
+        match=match
+    )
+    
+@app.route("/reset_match/<int:i>")
+def reset_match(i):
+
+    if not session.get("admin"):
+        return redirect("/login")
+
+    c = db()
+    cur = c.cursor()
+
+    # Remise à zéro du match
+    cur.execute(
+        """
+        UPDATE matchs
+        SET score_aslm = 0,
+            score_adv = 0,
+            statut = 'Avant match'
+        WHERE id = ?
+        """,
+        (i,)
+    )
+
+    # Suppression des buteurs
+    cur.execute(
+        """
+        DELETE FROM buts
+        WHERE match_id = ?
+        """,
+        (i,)
+    )
+
+    c.commit()
+    c.close()
+
+    return redirect(f"/match/{i}")
+
+@app.route("/confirm_delete/<int:i>")
+def confirm_delete(i):
+
+    if not session.get("admin"):
+        return redirect("/login")
+
+    c = db()
+    cur = c.cursor()
+
+    cur.execute(
+        "SELECT * FROM matchs WHERE id=?",
+        (i,)
+    )
+
+    match = cur.fetchone()
+
+    c.close()
+
+    return render_template(
+        "confirmation.html",
+        match=match
+    )
+  
 @app.route("/delete/<int:i>")
 def delete(i):
 

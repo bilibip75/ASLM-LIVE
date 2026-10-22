@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Réinitialisation</title>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>⚠️ Réinitialiser le match</h2>
+
+    <h3>
+        {{ match[1] }} - {{ match[2] }}
+    </h3>
+
+    <p>
+        Cette action va :
+    </p>
+
+    <ul>
+        <li>Remettre le score à 0 - 0</li>
+        <li>Supprimer tous les buteurs</li>
+        <li>Supprimer l'historique</li>
+        <li>Remettre le statut à "Avant match"</li>
+    </ul>
+
+    <a class="btn" href="/reset_match/{{match[0]}}">
+        ✅ Confirmer la réinitialisation
+    </a>
+
+    <a class="btn" href="/match/{{match[0]}}">
+        ❌ Annuler
+    </a>
+
+</div>
+
+</body>
+
+</html>
