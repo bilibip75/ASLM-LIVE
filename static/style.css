@@ -82,4 +82,18 @@ button {
 		color:red;
 		font-weight:bold;
 	}
+	
+	.qr-zone{
+    text-align:center;
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    margin:20px 0;
+    box-shadow:0 2px 8px #ccc;
+	}
+
+	.qr-zone img{
+		width:180px;
+		height:auto;
+	}
 }
