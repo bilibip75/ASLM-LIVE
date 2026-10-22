@@ -1,4 +1,4 @@
-body{font-family:Arial,sans-serif;background:#eef2f7;max-width:1100px;margin:auto;padding:20px}.logo{width:90px;height:auto;display:block;margin:10px auto}.card{background:#fff;border-radius:12px;padding:20px;margin:12px 0;box-shadow:0 2px 8px #ccc}.btn{background:#d90429;color:#fff;padding:10px 14px;text-decoration:none;border-radius:6px;display:inline-block;margin:3px}.menu{text-align:center;margin-bottom:15px}.score{font-size:48px;font-weight:bold;color:#003566;text-align:center}.status{font-weight:bold}input,select,button{padding:8px;margin:4px}input,
+body{font-family:Arial,sans-serif;background:#eef2f7;max-width:1100px;margin:auto;padding:20px}.logo{width:90px;height:auto;display:block;margin:10px auto}.card{background:#fff;border-radius:12px;padding:20px;margin:12px 0;box-shadow:0 2px 8px #ccc}.btn{background:#d90429;color:#fff;padding:10px 14px;text-decoration:none;border-radius:6px;display:inline-block;margin:3px}.menu{text-align:center;margin-bottom:15px}.score{font-size:72px;font-weight:bold;color:#003566;text-align:center;margin:20px 0;}.status{font-weight:bold}input,select,button{padding:8px;margin:4px}input,
 select,
 button {
     width: 100%;
@@ -7,10 +7,18 @@ button {
     margin: 5px 0;
 }
 
-.btn {
-    width: 100%;
-    text-align: center;
-    font-size: 18px;
+.btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    background:#d90429;
+    color:white;
+    text-decoration:none;
+    padding:16px;
+    margin:6px 0;
+    border-radius:8px;
+    font-size:20px;
+    font-weight:bold;
 }
 
 .score {
@@ -18,4 +26,41 @@ button {
     text-align: center;
     font-weight: bold;
     color: #003566;
+}
+.composition{
+    background:#ffffff;
+    border-left:5px solid #003566;
+    padding:10px;
+    margin:10px 0;
+    border-radius:6px;
+}
+
+.composition li{
+    padding:4px 0;
+}
+.status{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin:15px 0;
+}
+@media (max-width: 768px){
+
+    body{
+        padding:10px;
+    }
+
+    .card{
+        padding:15px;
+    }
+
+    .logo{
+        width:70px;
+    }
+
+    input,
+    select,
+    button{
+        font-size:18px;
+    }
 }

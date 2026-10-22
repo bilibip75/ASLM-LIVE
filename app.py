@@ -1,10 +1,8 @@
-from flask import Flask, render_template, request, redirect
-import sqlite3
-import requests
-import csv
-import io
+from flask import Flask, render_template, request, redirect, session
 
 app = Flask(__name__)
+
+app.secret_key = "ASLM_SECRET_2026"
 
 DB = "aslm_live.db"
 
@@ -125,6 +123,33 @@ def get_joueurs_match(equipe, date_match):
 
         return []
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+
+    if request.method == "POST":
+
+        login = request.form["login"]
+        password = request.form["password"]
+
+        if (
+            login == "admin"
+            and
+            password == "ASLM2026"
+        ):
+
+            session["admin"] = True
+
+            return redirect("/admin")
+
+    return render_template("login.html")
+
+@app.route("/logout")
+def logout():
+
+    session.clear()
+
+    return redirect("/")
+
 
 @app.route("/")
 def index():
@@ -148,6 +173,9 @@ def index():
 
 @app.route("/admin")
 def admin():
+
+    if not session.get("admin"):
+        return redirect("/login")
 
     c = db()
     cur = c.cursor()
