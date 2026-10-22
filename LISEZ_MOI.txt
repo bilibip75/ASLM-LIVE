@@ -1,0 +1,1 @@
+Copier votre logo dans static/logo_aslm.png

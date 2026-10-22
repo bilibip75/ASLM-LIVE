@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>{{match[1]}} - {{match[2]}}</title>
+</head>
+
+<body>
+
+    <img class="logo" src="/static/logo_aslm.png">
+
+    <div class="menu">
+        <a class="btn" href="/">🏠 Accueil</a>
+        <a class="btn" href="/admin">⚙ Administration</a>
+        <a class="btn" href="/buteurs">🏆 Buteurs</a>
+    </div>
+
+    <div class="card">
+
+        <h1>{{match[1]}} - {{match[2]}}</h1>
+
+        <p>
+            📍 {{match[3]}}
+            |
+            🏟️ {{match[4]}}
+        </p>
+
+        <p>
+            📅 {{match[5]}}
+            |
+            ⏰ {{match[6]}}
+        </p>
+
+        <h3 class="status">
+            Statut actuel : {{match[9]}}
+        </h3>
+
+        <p>
+            <a class="btn" href="/statut/{{match[0]}}/Avant match">
+                ⚪ Avant match
+            </a>
+
+            <a class="btn" href="/statut/{{match[0]}}/En cours">
+                🟢 En cours
+            </a>
+
+            <a class="btn" href="/statut/{{match[0]}}/Mi-temps">
+                🟡 Mi-temps
+            </a>
+
+            <a class="btn" href="/statut/{{match[0]}}/Terminé">
+                🔴 Terminé
+            </a>
+        </p>
+
+        <div class="score">
+            ASLM {{match[7]}} - {{match[8]}}
+        </div>
+
+        <p>
+            <a class="btn" href="/score/{{match[0]}}/pa">
+                ⚽ + ASLM
+            </a>
+
+            <a class="btn" href="/score/{{match[0]}}/ma">
+                ➖ ASLM
+            </a>
+
+            <a class="btn" href="/score/{{match[0]}}/pv">
+                ⚽ + ADV
+            </a>
+
+            <a class="btn" href="/score/{{match[0]}}/mv">
+                ➖ ADV
+            </a>
+        </p>
+
+    </div>
+
+    {% if joueurs_compo %}
+
+    <div class="card">
+
+        <h3>✅ Composition trouvée</h3>
+
+        <ul>
+            {% for joueur in joueurs_compo %}
+            <li>{{ joueur }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    {% else %}
+
+    <div class="card">
+
+        <h3>⚠️ Composition non trouvée</h3>
+
+        <p>
+            Mode manuel activé
+        </p>
+
+    </div>
+
+    {% endif %}
+
+    <div class="card">
+
+        <h3>⚽ Ajouter un buteur</h3>
+
+        <form action="/but/{{match[0]}}" method="post">
+
+            <input
+                type="text"
+                name="minute"
+                placeholder="44"
+                required>
+
+            {% if joueurs_compo %}
+
+            <select
+                name="buteur"
+                id="buteur">
+
+                {% for joueur in joueurs_compo %}
+
+                <option value="{{ joueur }}">
+                    {{ joueur }}
+                </option>
+
+                {% endfor %}
+
+                <option value="AUTRE">
+                    Autre joueur...
+                </option>
+
+            </select>
+
+            <input
+                type="text"
+                id="autre_joueur"
+                name="autre_joueur"
+                placeholder="Nom du joueur"
+                style="display:none;">
+
+            {% else %}
+
+            <input
+                type="text"
+                name="buteur"
+                placeholder="Nom du buteur">
+
+            {% endif %}
+
+            <button type="submit">
+                Ajouter le but
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="card">
+
+        <h3>⚽ Historique</h3>
+
+        {% for b in buts %}
+
+        <p>
+            ⚽ {{b[0]}}' {{b[1]}}
+        </p>
+
+        {% endfor %}
+
+    </div>
+
+    <script>
+
+        const buteurSelect =
+            document.getElementById("buteur");
+
+        if (buteurSelect) {
+
+            buteurSelect.addEventListener(
+                "change",
+                function () {
+
+                    const autre =
+                        document.getElementById(
+                            "autre_joueur"
+                        );
+
+                    if (
+                        this.value === "AUTRE"
+                    ) {
+                        autre.style.display =
+                            "block";
+                    } else {
+                        autre.style.display =
+                            "none";
+                    }
+
+                }
+            );
+
+        }
+
+        setInterval(function () {
+
+            location.reload();
+
+        }, 10000);
+
+    </script>
+
+</body>
+
+</html>
