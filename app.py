@@ -1,5 +1,11 @@
 from flask import Flask, render_template, request, redirect, session
 
+import sqlite3
+import requests
+import csv
+import io
+import os
+
 app = Flask(__name__)
 
 app.secret_key = "ASLM_SECRET_2026"
@@ -469,8 +475,6 @@ def buteurs():
     )
 
 print("APP CHARGEE")
-
-import os
 
 import os
 
