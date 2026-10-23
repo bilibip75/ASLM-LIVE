@@ -10,7 +10,14 @@ app = Flask(__name__)
 
 app.secret_key = "ASLM_SECRET_2026"
 
-DB = "aslm_live.db"
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+DB = os.path.join(
+    BASE_DIR,
+    "aslm_live.db"
+)
 
 SHEET_ID = "1F98VyDkkxujPQH1E86osKDgkzwqH_gupwpejHDkFPG8"
 
@@ -31,6 +38,9 @@ EQUIPES = [
 
 
 def db():
+
+    print("BASE SQLITE :", DB)
+
     return sqlite3.connect(DB)
 
 
