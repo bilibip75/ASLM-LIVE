@@ -1,0 +1,395 @@
+<<<<<<< HEAD
+body{
+    font-family:Arial,sans-serif;
+    background:#eef2f7;
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+.logo{
+    width:90px;
+    height:auto;
+    display:block;
+    margin:10px auto;
+}
+
+.menu{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.card{
+    background:#ffffff;
+    border-radius:12px;
+    padding:20px;
+    margin:12px 0;
+    box-shadow:0 2px 8px #cccccc;
+=======
+body{font-family:Arial,sans-serif;background:#eef2f7;max-width:1100px;margin:auto;padding:20px}.logo{width:90px;height:auto;display:block;margin:10px auto}.card{background:#fff;border-radius:12px;padding:20px;margin:12px 0;box-shadow:0 2px 8px #ccc}.btn{background:#d90429;color:#fff;padding:10px 14px;text-decoration:none;border-radius:6px;display:inline-block;margin:3px}.menu{text-align:center;margin-bottom:15px}.score{font-size:72px;font-weight:bold;color:#003566;text-align:center;margin:20px 0;}.status{font-weight:bold}input,select,button{padding:8px;margin:4px}input,
+select,
+button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 5px 0;
+>>>>>>> 435aa70cba8373852ece083d67e9e3e72e0b05df
+}
+
+.btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    background:#d90429;
+    color:white;
+    text-decoration:none;
+<<<<<<< HEAD
+    padding:14px;
+    margin:6px 0;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+}
+
+.btn:hover{
+    opacity:0.9;
+}
+
+input,
+select,
+button{
+    width:100%;
+    box-sizing:border-box;
+    padding:10px;
+    margin:5px 0;
+    font-size:16px;
+}
+
+/* ========================= */
+/* PAGE MATCH                */
+/* ========================= */
+
+.score{
+    background:#003566;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    margin:20px auto;
+    color:white;
+}
+
+.chrono-match{
+    font-size:42px;
+    font-weight:bold;
+    color:white;
+    margin-bottom:10px;
+}
+
+.score-match{
+    font-size:72px;
+    font-weight:bold;
+    color:white;
+}
+
+.match-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin:20px 0;
+}
+
+.team-side{
+    flex:1;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.team-logo{
+    width:45px;
+    height:auto;
+    display:block;
+    margin:0 auto 8px auto;
+}
+
+.status{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.chrono{
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    color:#003566;
+}
+
+.score-team{
+    font-size:22px;
+    font-weight:bold;
+    margin:5px 0;
+    color:white;
+}
+
+/* ========================= */
+/* SUPPORTERS                */
+/* ========================= */
+
+.supporter-header{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.supporter-header h1{
+    color:#003566;
+    margin:10px 0;
+}
+
+.supporter-header p{
+    color:#666666;
+}
+
+.match-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+    text-align:center;
+}
+
+.equipe{
+    font-size:22px;
+    font-weight:bold;
+    color:#003566;
+}
+
+.adversaire{
+    font-size:20px;
+    margin-top:10px;
+}
+
+.score-public{
+    font-size:64px;
+    font-weight:bold;
+    color:#d90429;
+    margin:10px 0;
+}
+
+.chrono-supporter{
+    font-size:32px;
+    font-weight:bold;
+    color:#003566;
+    margin-bottom:10px;
+}
+
+.buteurs-supporters{
+    margin-top:12px;
+    padding:10px;
+    background:#f5f5f5;
+    border-radius:8px;
+    text-align:left;
+}
+
+.buteurs-supporters h4{
+    margin:0 0 8px 0;
+    font-size:20px;
+    color:#003566;
+    text-align:center;
+}
+
+.buteurs-supporters p{
+    margin:2px 0;
+    font-size:16px;
+    font-weight:normal;
+    color:#333;
+}
+
+/* ========================= */
+/* STATUTS                   */
+/* ========================= */
+
+.avant{
+    color:#777777;
+    font-weight:bold;
+}
+
+.encours{
+    color:green;
+    font-weight:bold;
+}
+
+.mitemps{
+    color:orange;
+    font-weight:bold;
+}
+
+.termine{
+    color:red;
+    font-weight:bold;
+}
+
+/* ========================= */
+/* COMPOSITION               */
+/* ========================= */
+
+.composition{
+    background:white;
+=======
+    padding:16px;
+    margin:6px 0;
+    border-radius:8px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.score {
+    font-size: 60px;
+    text-align: center;
+    font-weight: bold;
+    color: #003566;
+}
+.composition{
+    background:#ffffff;
+>>>>>>> 435aa70cba8373852ece083d67e9e3e72e0b05df
+    border-left:5px solid #003566;
+    padding:10px;
+    margin:10px 0;
+    border-radius:6px;
+}
+
+.composition li{
+    padding:4px 0;
+}
+<<<<<<< HEAD
+
+/* ========================= */
+/* QR CODE                   */
+/* ========================= */
+
+.qr-zone{
+    text-align:center;
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    margin:20px 0;
+    box-shadow:0 2px 8px #cccccc;
+}
+
+.qr-zone img{
+    width:180px;
+    height:auto;
+}
+
+/* ========================= */
+/* HISTORIQUE BUTEURS        */
+/* ========================= */
+
+.but{
+    padding:8px;
+    margin:5px 0;
+    background:white;
+    border-left:5px solid #d90429;
+    border-radius:5px;
+}
+
+/* ========================= */
+/* VERSION MOBILE            */
+/* ========================= */
+
+@media (max-width:768px){
+=======
+.status{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin:15px 0;
+}
+@media (max-width: 768px){
+>>>>>>> 435aa70cba8373852ece083d67e9e3e72e0b05df
+
+    body{
+        padding:10px;
+    }
+
+<<<<<<< HEAD
+=======
+    .card{
+        padding:15px;
+    }
+
+>>>>>>> 435aa70cba8373852ece083d67e9e3e72e0b05df
+    .logo{
+        width:70px;
+    }
+
+<<<<<<< HEAD
+    .score-match{
+        font-size:48px;
+    }
+
+    .chrono-match{
+        font-size:32px;
+    }
+
+    .score-public{
+        font-size:48px;
+    }
+
+    .team-side{
+        font-size:18px;
+    }
+
+    .team-logo{
+        width:35px;
+    }
+
+    .btn{
+        font-size:18px;
+    }
+=======
+    input,
+    select,
+    button{
+        font-size:18px;
+    }
+	
+	.status-avant{
+    color:#777;
+	}
+
+	.status-encours{
+		color:green;
+		font-weight:bold;
+	}
+
+	.status-mitemps{
+		color:orange;
+		font-weight:bold;
+	}
+
+	.status-termine{
+		color:red;
+		font-weight:bold;
+	}
+	
+	.qr-zone{
+    text-align:center;
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    margin:20px 0;
+    box-shadow:0 2px 8px #ccc;
+	}
+
+	.qr-zone img{
+		width:180px;
+		height:auto;
+	}
+>>>>>>> 435aa70cba8373852ece083d67e9e3e72e0b05df
+}

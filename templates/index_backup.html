@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASLM LIVE</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <style>
+
+        .supporter-header{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        .supporter-header h1{
+            color:#003566;
+            margin:10px 0;
+        }
+
+        .supporter-header p{
+            color:#666;
+        }
+
+        .match-card{
+            background:white;
+            border-radius:12px;
+            padding:20px;
+            margin-bottom:15px;
+            box-shadow:0 2px 8px rgba(0,0,0,.15);
+            text-align:center;
+        }
+
+        .equipe{
+            font-size:22px;
+            font-weight:bold;
+            color:#003566;
+        }
+
+        .adversaire{
+            font-size:20px;
+            margin-top:10px;
+        }
+
+        .score-public{
+            font-size:64px;
+            font-weight:bold;
+            color:#d90429;
+            margin:15px 0;
+        }
+
+        .statut{
+            font-size:18px;
+            font-weight:bold;
+            margin-top:10px;
+        }
+
+        .avant{
+            color:#777;
+        }
+
+        .encours{
+            color:green;
+        }
+
+        .mitemps{
+            color:orange;
+        }
+
+        .termine{
+            color:red;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="supporter-header">
+
+    <img
+        class="logo"
+        src="/static/logo_aslm.png"
+        alt="Logo ASLM">
+
+    <h1>⚽ ASLM LIVE</h1>
+
+    <p>
+        Résultats et scores en direct
+    </p>
+
+</div>
+
+{% for m in matchs %}
+
+<div class="match-card">
+
+    <div class="equipe">
+        {{ m[1] }}
+    </div>
+
+    <div class="score-public">
+        {{ m[7] }} - {{ m[8] }}
+    </div>
+
+    <div class="adversaire">
+        {{ m[2] }}
+    </div>
+
+    {% if m[9] == "Avant match" %}
+
+        <div class="statut avant">
+            ⚪ Avant match
+        </div>
+
+    {% elif m[9] == "En cours" %}
+
+        <div class="statut encours">
+            🟢 En cours
+        </div>
+
+    {% elif m[9] == "Mi-temps" %}
+
+        <div class="statut mitemps">
+            🟡 Mi-temps
+        </div>
+
+    {% elif m[9] == "Terminé" %}
+
+        <div class="statut termine">
+            🔴 Terminé
+        </div>
+
+    {% else %}
+
+        <div class="statut">
+            {{ m[9] }}
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endfor %}
+
+<script>
+
+setInterval(function() {
+
+    location.reload();
+
+}, 10000);
+
+</script>
+
+</body>
+
+</html>

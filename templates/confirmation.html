@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Confirmation suppression</title>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>⚠️ Confirmation</h2>
+
+    <p>
+        Voulez-vous vraiment supprimer :
+    </p>
+
+    <h3>
+        {{ match[1] }} - {{ match[2] }}
+    </h3>
+
+    <a class="btn" href="/delete/{{match[0]}}">
+        ✅ Oui supprimer
+    </a>
+
+    <a class="btn" href="/admin">
+        ❌ Annuler
+    </a>
+
+</div>
+
+</body>
+</html>

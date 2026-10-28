@@ -1,0 +1,8 @@
+flask
+<<<<<<< HEAD
+requests
+gspread
+oauth2client
+=======
+requests
+>>>>>>> 435aa70cba8373852ece083d67e9e3e72e0b05df

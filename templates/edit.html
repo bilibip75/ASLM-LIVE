@@ -1,0 +1,120 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Modifier le match</title>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>✏️ Modifier le match</h1>
+
+    <form method="post">
+
+        <label>Catégorie</label>
+
+        <select name="equipe">
+
+            <option value="U13"
+                {% if m[1] == "U13" %}selected{% endif %}>
+                U13
+            </option>
+
+            <option value="U15 A"
+                {% if m[1] == "U15 A" %}selected{% endif %}>
+                U15 A
+            </option>
+
+            <option value="U15 B"
+                {% if m[1] == "U15 B" %}selected{% endif %}>
+                U15 B
+            </option>
+
+            <option value="U18"
+                {% if m[1] == "U18" %}selected{% endif %}>
+                U18
+            </option>
+
+            <option value="Senior A"
+                {% if m[1] == "Senior A" %}selected{% endif %}>
+                Senior A
+            </option>
+
+            <option value="Senior B"
+                {% if m[1] == "Senior B" %}selected{% endif %}>
+                Senior B
+            </option>
+
+            <option value="Vétéran"
+                {% if m[1] == "Vétéran" %}selected{% endif %}>
+                Vétéran
+            </option>
+
+        </select>
+
+        <label>Adversaire</label>
+        <input
+            type="text"
+            name="adversaire"
+            value="{{ m[2] }}"
+            required>
+
+        <label>Date</label>
+        <input
+            type="date"
+            name="date_match"
+            value="{{ m[3] }}"
+            required>
+
+        <label>Stade</label>
+        <input
+            type="text"
+            name="stade"
+            value="{{ m[4] }}">
+
+        <label>Heure</label>
+        <input
+            type="time"
+            name="heure_match"
+            value="{{ m[5] }}">
+
+        <label>Domicile / Extérieur</label>
+
+        <select name="domicile">
+
+            <option value="Domicile"
+                {% if m[6] == "Domicile" %}selected{% endif %}>
+                Domicile
+            </option>
+
+            <option value="Exterieur"
+                {% if m[6] == "Exterieur" %}selected{% endif %}>
+                Extérieur
+            </option>
+
+        </select>
+
+        <br>
+
+        <button type="submit">
+            💾 Enregistrer
+        </button>
+
+        <a class="btn" href="/admin">
+            ❌ Annuler
+        </a>
+
+    </form>
+
+</div>
+
+</body>
+</html>
+=======
+<html><head><meta charset='utf-8'><link rel='stylesheet' href='/static/style.css'></head><body><div class='card'><h1>Modifier le match</h1><form method='post'><input name='equipe' value='{{m[1]}}'><input name='adversaire' value='{{m[2]}}'><input name='domicile' value='{{m[3]}}'><input name='stade' value='{{m[4]}}'><input name='date_match' value='{{m[5]}}'><input name='heure_match' value='{{m[6]}}'><button>Enregistrer</button></form></div></body></html>
+>>>>>>> 435aa70cba8373852ece083d67e9e3e72e0b05df

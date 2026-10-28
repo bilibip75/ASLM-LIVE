@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASLM LIVE</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+<<<<<<< HEAD
+=======
+    <style>
+
+        .supporter-header{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        .supporter-header h1{
+            color:#003566;
+            margin:10px 0;
+        }
+
+        .supporter-header p{
+            color:#666;
+        }
+
+        .match-card{
+            background:white;
+            border-radius:12px;
+            padding:20px;
+            margin-bottom:15px;
+            box-shadow:0 2px 8px rgba(0,0,0,.15);
+            text-align:center;
+        }
+
+        .equipe{
+            font-size:22px;
+            font-weight:bold;
+            color:#003566;
+        }
+
+        .adversaire{
+            font-size:20px;
+            margin-top:10px;
+        }
+
+        .score-public{
+            font-size:64px;
+            font-weight:bold;
+            color:#d90429;
+            margin:15px 0;
+        }
+
+        .statut{
+            font-size:18px;
+            font-weight:bold;
+            margin-top:10px;
+        }
+
+        .avant{
+            color:#777;
+        }
+
+        .encours{
+            color:green;
+        }
+
+        .mitemps{
+            color:orange;
+        }
+
+        .termine{
+            color:red;
+        }
+
+    </style>
+
+>>>>>>> 435aa70cba8373852ece083d67e9e3e72e0b05df
+</head>
+
+<body>
+
+<div class="supporter-header">
+
+    <img
+        class="logo"
+        src="/static/logo_aslm.png"
+        alt="Logo ASLM">
+
+    <h1>⚽ ASLM LIVE</h1>
+
+    <p>
+        Résultats et scores en direct
+    </p>
+
+</div>
+
+<div class="qr-zone">
+
+    <h3>📱 Suivre les résultats en direct</h3>
+
+    <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://aslm-live.onrender.com"
+        alt="QR Code ASLM Live">
+
+    <p>
+<<<<<<< HEAD
+        Scannez ce QR Code pour accéder aux scores.
+=======
+        Scannez ce QR Code pour accéder aux scores ASLM Live.
+>>>>>>> 435aa70cba8373852ece083d67e9e3e72e0b05df
+    </p>
+
+</div>
+
+<<<<<<< HEAD
+{% for item in matchs_affichage %}
+
+{% set m = item.match %}
+
+<div class="match-card">
+
+    {% if m[6] == "Domicile" %}
+
+    <div class="match-header">
+
+        <div class="team-side">
+
+            <img
+                class="team-logo"
+                src="/static/logo_aslm.png"
+                alt="ASLM">
+
+            <br>
+
+            {{ m[1] }}
+
+        </div>
+
+        <div class="team-side">
+
+            {{ m[2] }}
+
+        </div>
+
+    </div>
+
+    {% else %}
+
+    <div class="match-header">
+
+        <div class="team-side">
+
+            {{ m[2] }}
+
+        </div>
+
+        <div class="team-side">
+
+            <img
+                class="team-logo"
+                src="/static/logo_aslm.png"
+                alt="ASLM">
+
+            <br>
+
+            {{ m[1] }}
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+	{% if m[8] == "En cours" %}
+
+	<div class="chrono-supporter">
+		⏱️ {{ item.minute_match }}'
+	</div>
+
+	{% elif m[8] == "Mi-temps" %}
+
+	<div class="chrono-supporter">
+		⏱️ 45'
+	</div>
+
+	{% elif m[8] == "Terminé" %}
+
+	<div class="chrono-supporter">
+		⏱️ {{ item.minute_match }}'
+	</div>
+
+	{% endif %}
+
+    <div class="score-public">
+
+    {% if m[6] == "Domicile" %}
+
+        {{ m[9] }} - {{ m[10] }}
+
+    {% else %}
+
+        {{ m[10] }} - {{ m[9] }}
+
+    {% endif %}
+	
+	{% if item.buts %}
+
+	<div class="buteurs-supporters">
+
+		<h4>Buteurs</h4>
+
+		{% for b in item.buts %}
+
+		<p>
+			⚽ {{ b[0] }}' {{ b[1] }}
+		</p>
+
+		{% endfor %}
+
+	</div>
+
+	{% endif %}
+
+</div>
+
+    {% if m[8] == "Avant match" %}
+
+    <div class="statut avant">
+        ⚪ Avant match
+    </div>
+
+    {% elif m[8] == "En cours" %}
+
+    <div class="statut encours">
+        🟢 En cours
+    </div>
+
+    {% elif m[8] == "Mi-temps" %}
+
+    <div class="statut mitemps">
+        🟡 Mi-temps
+    </div>
+
+    {% elif m[8] == "Terminé" %}
+
+    <div class="statut termine">
+        🔴 Terminé
+    </div>
+
+    {% else %}
+
+    <div class="statut">
+        {{ m[8] }}
+    </div>
+=======
+{% for item in matchs_avec_buts %}
+
+<div class="match-card">
+
+    <div class="equipe">
+        {{ item.match[1] }}
+    </div>
+
+    <div class="score-public">
+        {{ item.match[7] }} - {{ item.match[8] }}
+    </div>
+
+    <div class="adversaire">
+        {{ item.match[2] }}
+    </div>
+	
+	{% if item.buts %}
+
+	<h4>⚽ Buteurs</h4>
+
+	{% for b in item.buts %}
+
+	<p>
+	
+		⚽ {{ b[0] }}' {{ b[1] }}
+	</p>
+
+	{% endfor %}
+
+	{% endif %}
+	
+    {% if item.match[9] == "Avant match" %}
+
+        <div class="statut avant">
+            ⚪ Avant match
+        </div>
+
+    {% elif item.match[9] == "En cours" %}
+
+        <div class="statut encours">
+            🟢 En cours
+        </div>
+
+    {% elif item.match[9] == "Mi-temps" %}
+
+        <div class="statut mitemps">
+            🟡 Mi-temps
+        </div>
+
+    {% elif item.match[9] == "Terminé" %}
+
+        <div class="statut termine">
+            🔴 Terminé
+        </div>
+
+    {% else %}
+
+        <div class="statut">
+            {{ item.match[9] }}
+        </div>
+>>>>>>> 435aa70cba8373852ece083d67e9e3e72e0b05df
+
+    {% endif %}
+
+</div>
+
+{% endfor %}
+
+<script>
+
+setInterval(function() {
+
+    location.reload();
+
+}, 10000);
+
+</script>
+
+</body>
+
+</html>
